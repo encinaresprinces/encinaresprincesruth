@@ -1,0 +1,29 @@
+<style>
+table, td, th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+</style>
+
+<table id="tabler" name='tr'>
+   {% for barangay in barangays %}
+     <tr> 
+      
+        <th> FULLNAME</th>
+        <th> PHONE NUMBER</th>
+        <th> ADDRESS</th>
+        <tr>
+            <!-- <td> Full Name <td/> -->
+            <td> <a href=/{{barangay.id}}/view_list>{{barangay.zbarangay}}</a></td>
+            <td>{{barangay.municipal}}</td>
+      <td>{{barangay.address}}</td>
+      <td><a href="edit/{{barangay.id}}">EDIT</a></td>
+       <td><a href="delete/{{barangay.id}}">DELETE</a></td>
+    </tr> {% endfor %}
+</tr>
+</table>

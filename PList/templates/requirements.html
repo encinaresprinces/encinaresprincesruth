@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>TravelPass Permit</title>
+
+  <style>
+
+body {
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+  color: #black;
+  background:mediumaquamarine;
+  background-image:url(https://images.unsplash.com/photo-1533628635777-112b2239b1c7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80);">
+  background: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+</style>
+
+    <style>
+  
+    body{
+      font-family: "comic sans ms", Monospace;
+      background-color: mediumaquamarine;
+      margin: 0;
+      
+    }
+    
+    h2{
+      background-color: black;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    td{
+      padding: 7px;
+    }
+    input{
+      height: 30px;
+      border-radius: 1px;
+      border: none;
+      
+    }
+    
+    input:focus{
+      outline: none;
+      border: 1px solid mediumaquamarine;;
+    }
+    input:hover{
+      box-shadow: 5px 5px 5px black;
+    }
+    
+    .button{
+      background-color: white;
+      color:#fff;
+      border: none;
+      padding: 7px
+    }
+    
+    .button:hover {
+      cursor: pointer;
+      box-shadow: 5px 5px 5px red;
+    }
+
+  table, td, th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+
+
+</style>
+
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a class="w3-bar-item w3-button">TravelPass Permit</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+  <ul>
+    <a href="/" class="w3-bar-item w3-button">Logout</a>
+  </ul>
+  </div>
+  </div>
+</div>
+</head>
+<body>
+
+</head>
+
+<form method="POST" action="/{{barangay.id}}/add_item">
+      
+        <h1 align="center">T R A V E L P A S S P E R M I T</h1>
+
+  
+    <div id="personal-details">
+    <h2 align="center">TRAVELER REQUIREMENTS</h2>
+      <table width="100%">
+ 
+  <tr>
+
+         <td><label for="pname"><b>Full Name</td>
+          <td>
+            <input type="text" id="pname" placeholder="Enter Full Name" name="pname" size="30">
+          </td>
+          <tr>
+            <td>
+            
+      <label for="Rswabresult"><b>Swab Result</b></label><br></label>
+      <select id="Rswab"name="Rswab"><option>Negative</option><option>Positive</option></select>
+           <td><label for="cef">Select a file:
+              <input type="file" id="cef" name="cef">                
+      <tr/>
+      <tr>
+
+
+          <label for="RidentificationCards"><td>IDENTIFICATION CARD</td>
+          <td>
+            <input type="text" name="RidtCard" id="RidtCard" placeholder="Enter Identification Card" size="30">
+          <td><label for="myfile">Select a file:
+              <input type="file" id="myfile" name="myfile">
+            
+        </tr>
+        <tr> 
+
+
+          <label for="Rtransportation"><td>TRANSPORTATION VEHICLE</td>
+          <td>
+            <input type="text" id="Rtranspo" name="Rtranspo"placeholder="Enter Vehicle"size="30">
+            <td>
+      <select name="ptransportation" id="ptransportation">
+    <option value="">--Please choose a type--</option>
+    <option value="public Transportation">Public Transportation</option>
+    <option value="private Transportation">Private Transportation</option>
+          
+       <tr>
+        <td>
+         <button id="submit" type="submit">Submit</button>
+       </td>
+      </table>
+    </div>
+     
+    
+  <table id="tabler" name='tr'>
+    {% for travelerprofile in requirements %}
+    <tr>
+       <table>
+  <th>Name</th>
+  <th>Result</th>
+  <th>Files</th>
+  <th>ID Card</th>
+  <th>File</th>
+  <th>Vechicles</th>
+  <th>Type</th>
+
+  <tr>
+      
+      <td>{{ travelerprofile.Pname}}</td>
+      <td>{{ travelerprofile.swabresult}}</td>
+      <td>{{ travelerprofile.swabcertificate}}</td>
+      <td>{{ travelerprofile.RidtCard}}</td>
+      <td>{{ travelerprofile.identificationCards }}</td>
+      <td>{{ travelerprofile.Rtranspo}}</td>
+      <td>{{ travelerprofile.transportation}}</td>
+    </tr> {% endfor %} </table>
+</table>
+
+ 
+    </form>
+      
+
+</body>
+</html>
+
+
+
+  
+
+
+  
